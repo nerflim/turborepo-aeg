@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Modal } from 'components';
-import { Dialog } from '@headlessui/react';
 
 interface HeroSectionProps {
   images: {
@@ -32,6 +31,7 @@ const HeroSection = ({ images, content }: HeroSectionProps) => {
           height={600}
           className="w-full object-cover hover:scale-110 transition-all duration-300 hover:opacity-70 cursor-pointer"
           onClick={onViewImg(images[0].url)}
+          priority
         />
       </div>
       <div className="flex-1 flex flex-col gap-6">
@@ -43,6 +43,7 @@ const HeroSection = ({ images, content }: HeroSectionProps) => {
             height={290}
             className="w-full object-cover hover:scale-110 transition-all duration-300 hover:opacity-70 cursor-pointer"
             onClick={onViewImg(images[1].url)}
+            priority
           />
         </div>
         <div className="overflow-hidden hover:bg-slate-300 transition-all duration-300">
@@ -53,6 +54,7 @@ const HeroSection = ({ images, content }: HeroSectionProps) => {
             height={290}
             className="w-full object-cover hover:scale-110 transition-all duration-300 hover:opacity-70 cursor-pointer"
             onClick={onViewImg(images[2].url)}
+            priority
           />
         </div>
       </div>
@@ -75,7 +77,7 @@ const HeroSection = ({ images, content }: HeroSectionProps) => {
               better.
             </p>
             <button
-              className="block py-3 px-12 rounded-md bg-slate-300 mt-6"
+              className="block py-3 px-12 rounded-md bg-slate-300 mt-6 focus:outline-none"
               onClick={onCloseModal}
             >
               Close

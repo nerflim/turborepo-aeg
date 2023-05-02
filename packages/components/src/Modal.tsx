@@ -8,6 +8,25 @@ interface ModalProps {
   onClose: () => void;
 }
 
+const transitions = {
+  backdrop: {
+    enter: 'ease-out',
+    enterFrom: 'opacity-0',
+    enterTo: 'opacity-100',
+    leave: 'ease-in ',
+    leaveFrom: 'opacity-100',
+    leaveTo: 'opacity-0',
+  },
+  modal: {
+    enter: 'ease-out',
+    enterFrom: 'opacity-0 scale-95',
+    enterTo: 'opacity-100 scale-100',
+    leave: 'ease-in ',
+    leaveFrom: 'opacity-100 scale-100',
+    leaveTo: 'opacity-0 scale-95',
+  },
+};
+
 export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -17,29 +36,13 @@ export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
         open={isOpen}
         onClose={onClose}
       >
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in "
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
+        <Transition.Child as={Fragment} {...transitions.backdrop}>
           <div className="fixed inset-0 bg-black bg-opacity-60" />
         </Transition.Child>
 
         <div className="fixed inset-1 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4 text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out "
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in "
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
+            <Transition.Child as={Fragment} {...transitions.modal}>
               <Dialog.Panel className="max-w-xl transform overflow-hidden rounded-md bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
