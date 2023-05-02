@@ -1,10 +1,12 @@
 import { Button } from "components";
 
-export default function Web() {
+const Web = () => {
   return (
     <div>
       <h1>Web</h1>
       <Button />
     </div>
   );
-}
+};
+
+export default Web;
