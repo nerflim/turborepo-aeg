@@ -1,10 +1,12 @@
-import { Button } from "components";
+import { Button } from 'components';
+import HeroSection from '../components/HeroSection/HeroSection';
+import ArticleSection from '../components/ArticleSection/ArticleSection';
 
 const Web = () => {
   return (
     <div>
-      <h1>Web</h1>
-      <Button />
+      <HeroSection />
+      <ArticleSection />
     </div>
   );
 };

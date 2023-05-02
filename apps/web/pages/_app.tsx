@@ -3,6 +3,8 @@ import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout';
 import '../styles/app.scss';
+import '@fontsource/open-sans';
+import '@fontsource/open-sans/300.css';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
