@@ -13,7 +13,7 @@ interface ArticlesSectionProps {
 
 const ArticleSection = ({ articles }: ArticlesSectionProps) => {
   return (
-    <div className="snap-start">
+    <div>
       <h3 className="uppercase text-4xl tracking-wide text-center font-light mb-16">
         All the latest from AEG
       </h3>
