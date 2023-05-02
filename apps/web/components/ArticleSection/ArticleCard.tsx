@@ -1,14 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface ArticleItemProps {
+interface ArticleCardProps {
   thumbnail: string;
   title: string;
   description: string;
   slug: string;
 }
 
-const ArticleItem = ({ thumbnail, title, description }: ArticleItemProps) => {
+const ArticleCard = ({ thumbnail, title, description }: ArticleCardProps) => {
   const onReadMore = () => {
     console.log('Read more clicked!');
   };
@@ -38,4 +38,4 @@ const ArticleItem = ({ thumbnail, title, description }: ArticleItemProps) => {
   );
 };
 
-export default ArticleItem;
+export default ArticleCard;
