@@ -22,6 +22,7 @@ const ArticleCard = ({ thumbnail, title, description }: ArticleCardProps) => {
     <a
       className="flex-1 group cursor-pointer hover:-translate-y-3 transition-transform duration-300 mb-12 sm:mb-0"
       onClick={onReadMore}
+      data-testid="article-card"
     >
       <div className="overflow-hidden border-b-4 border-primary group-hover:shadow-xl">
         <Image
@@ -38,7 +39,10 @@ const ArticleCard = ({ thumbnail, title, description }: ArticleCardProps) => {
           {description}
         </div>
       </div>
-      <div className="cursor-pointer border-b border-primary py-3 inline-block group-hover:border-b-4 group-hover:font-bold transition-all">
+      <div
+        className="cursor-pointer border-b border-primary py-3 inline-block group-hover:border-b-4 group-hover:font-bold transition-all"
+        data-testid="read-more-btn"
+      >
         READ MORE
       </div>
     </a>
