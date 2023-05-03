@@ -54,7 +54,7 @@ const mockData = {
         alt: 'Image 3',
       },
     ],
-    content: `<h3 class="border-b border-white text-2xl uppercase leading-loose tracking-widest mb-6 font-light">
+    content: `<h3 class="border-b border-white text-xl lg:text-2xl uppercase tracking-widest mb-6 font-light inline-block pb-2">
                 Answer your body&apos;s needs
               </h3>
 
