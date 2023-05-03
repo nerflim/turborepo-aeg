@@ -11,9 +11,13 @@ interface ArticlesSectionProps {
   }[];
 }
 
+// You might be wondering why I'm using a different way of props declaration instead of React.FC
+// There are few shortcomings about using React.FC
+// refer to: https://kentcdodds.com/blog/how-to-write-a-react-component-in-typescript
+
 const ArticleSection = ({ articles }: ArticlesSectionProps) => {
   return (
-    <div>
+    <section>
       <h3 className="uppercase text-4xl tracking-wide text-center font-light mb-16">
         All the latest from AEG
       </h3>
@@ -23,7 +27,7 @@ const ArticleSection = ({ articles }: ArticlesSectionProps) => {
           <ArticleCard key={key} {...item} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -10,6 +10,10 @@ interface HeroSectionProps {
   content: string;
 }
 
+// You might be wondering why I'm using a different way of props declaration instead of React.FC
+// There are few shortcomings about using React.FC
+// refer to: https://kentcdodds.com/blog/how-to-write-a-react-component-in-typescript
+
 const HeroSection = ({ images, content }: HeroSectionProps) => {
   const [activeImg, setActiveImg] = useState('');
 
@@ -22,7 +26,7 @@ const HeroSection = ({ images, content }: HeroSectionProps) => {
   };
 
   return (
-    <div className="flex gap-6 mb-[230px]">
+    <section className="flex gap-6 mb-[230px]">
       <div className="flex-1 overflow-hidden hover:bg-slate-300 transition-all duration-300">
         <Image
           src={images[0].url}
@@ -85,7 +89,7 @@ const HeroSection = ({ images, content }: HeroSectionProps) => {
           </div>
         </div>
       </Modal>
-    </div>
+    </section>
   );
 };
 

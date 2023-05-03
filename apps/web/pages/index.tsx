@@ -1,10 +1,19 @@
-import { Button } from 'components';
+import Head from 'next/head';
 import HeroSection from '../components/HeroSection/HeroSection';
 import ArticleSection from '../components/ArticleSection/ArticleSection';
 
 const Web = ({ hero, articles }) => {
   return (
     <div>
+      <Head>
+        <title>AEG - Answer your body&apos;s needs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#0e1414" />
+        <meta
+          name="description"
+          content="AEG - Answer your body's needs. Assuming this is the description of the web app."
+        ></meta>
+      </Head>
       <HeroSection {...hero} />
       <ArticleSection articles={articles} />
     </div>

@@ -8,6 +8,10 @@ interface ArticleCardProps {
   slug: string;
 }
 
+// You might be wondering why I'm using a different way of props declaration instead of React.FC
+// There are few shortcomings about using React.FC
+// refer to: https://kentcdodds.com/blog/how-to-write-a-react-component-in-typescript
+
 const ArticleCard = ({ thumbnail, title, description }: ArticleCardProps) => {
   const onReadMore = (e: MouseEvent<HTMLAnchorElement>) => {
     console.log('Read more clicked!');
