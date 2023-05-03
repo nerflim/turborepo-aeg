@@ -22,7 +22,7 @@ const ArticleSection = ({ articles }: ArticlesSectionProps) => {
         All the latest from AEG
       </h3>
 
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-col sm:flex-row">
         {articles.map(({ key, ...item }) => (
           <ArticleCard key={key} {...item} />
         ))}

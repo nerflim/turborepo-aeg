@@ -20,7 +20,7 @@ const ArticleCard = ({ thumbnail, title, description }: ArticleCardProps) => {
 
   return (
     <a
-      className="flex-1 group cursor-pointer hover:-translate-y-3 transition-transform duration-300"
+      className="flex-1 group cursor-pointer hover:-translate-y-3 transition-transform duration-300 mb-12 sm:mb-0"
       onClick={onReadMore}
     >
       <div className="overflow-hidden border-b-4 border-primary group-hover:shadow-xl">
