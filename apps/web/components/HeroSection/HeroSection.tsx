@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Image from 'next/image';
 import { Modal } from 'components';
+import { Transition } from '@headlessui/react';
 
 interface HeroSectionProps {
   images: {
@@ -26,70 +27,79 @@ const HeroSection = ({ images, content }: HeroSectionProps) => {
   };
 
   return (
-    <section className="flex gap-6 mb-[230px]">
-      <div className="flex-1 overflow-hidden hover:bg-slate-300 transition-all duration-300">
-        <Image
-          src={images[0].url}
-          alt={images[0].alt}
-          width={384}
-          height={600}
-          className="w-full object-cover hover:scale-110 transition-all duration-300 hover:opacity-70 cursor-pointer"
-          onClick={onViewImg(images[0].url)}
-          priority
-        />
-      </div>
-      <div className="flex-1 flex flex-col gap-6">
-        <div className="overflow-hidden hover:bg-slate-300 transition-all duration-300">
+    <Transition
+      show
+      appear
+      as={Fragment}
+      enter="transition ease-out duration-1000"
+      enterFrom="opacity-0 translate-y-1"
+      enterTo="opacity-100 translate-y-0"
+    >
+      <section className="flex gap-6 mb-[230px]">
+        <div className="flex-1 overflow-hidden hover:bg-slate-300 transition-all duration-300">
           <Image
-            src={images[1].url}
-            alt={images[1].alt}
+            src={images[0].url}
+            alt={images[0].alt}
             width={384}
-            height={290}
+            height={600}
             className="w-full object-cover hover:scale-110 transition-all duration-300 hover:opacity-70 cursor-pointer"
-            onClick={onViewImg(images[1].url)}
+            onClick={onViewImg(images[0].url)}
             priority
           />
         </div>
-        <div className="overflow-hidden hover:bg-slate-300 transition-all duration-300">
-          <Image
-            src={images[2].url}
-            alt={images[2].alt}
-            width={384}
-            height={290}
-            className="w-full object-cover hover:scale-110 transition-all duration-300 hover:opacity-70 cursor-pointer"
-            onClick={onViewImg(images[2].url)}
-            priority
-          />
-        </div>
-      </div>
-      <div className="flex-1">
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-      </div>
-      <Modal isOpen={!!activeImg} onClose={onCloseModal}>
-        <div>
-          <Image
-            src={activeImg}
-            alt="Selected image"
-            width={384}
-            height={290}
-            className="w-full object-cover mb-6"
-          />
-          <div>
-            <h3 className="text-xl mb-2">This is a sample title</h3>
-            <p>
-              Assuming that each picture has a description. Just to make it look
-              better.
-            </p>
-            <button
-              className="block py-3 px-12 rounded-md bg-slate-300 mt-6 focus:outline-none"
-              onClick={onCloseModal}
-            >
-              Close
-            </button>
+        <div className="flex-1 flex flex-col gap-6">
+          <div className="overflow-hidden hover:bg-slate-300 transition-all duration-300">
+            <Image
+              src={images[1].url}
+              alt={images[1].alt}
+              width={384}
+              height={290}
+              className="w-full object-cover hover:scale-110 transition-all duration-300 hover:opacity-70 cursor-pointer"
+              onClick={onViewImg(images[1].url)}
+              priority
+            />
+          </div>
+          <div className="overflow-hidden hover:bg-slate-300 transition-all duration-300">
+            <Image
+              src={images[2].url}
+              alt={images[2].alt}
+              width={384}
+              height={290}
+              className="w-full object-cover hover:scale-110 transition-all duration-300 hover:opacity-70 cursor-pointer"
+              onClick={onViewImg(images[2].url)}
+              priority
+            />
           </div>
         </div>
-      </Modal>
-    </section>
+        <div className="flex-1">
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </div>
+        <Modal isOpen={!!activeImg} onClose={onCloseModal}>
+          <div>
+            <Image
+              src={activeImg}
+              alt="Selected image"
+              width={384}
+              height={290}
+              className="w-full object-cover mb-6"
+            />
+            <div>
+              <h3 className="text-xl mb-2">This is a sample title</h3>
+              <p>
+                Assuming that each picture has a description. Just to make it
+                look better.
+              </p>
+              <button
+                className="block py-3 px-12 rounded-md bg-slate-300 mt-6 focus:outline-none"
+                onClick={onCloseModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </Modal>
+      </section>
+    </Transition>
   );
 };
 
